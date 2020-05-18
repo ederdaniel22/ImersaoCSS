@@ -1,0 +1,269 @@
+/*reset das margens no html*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./img/Leao-Background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    font-size: 10px;
+}
+
+
+/*se a tela tiver pelo menos 400px vai usar a configuração*/
+
+@media (min-width: 400px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    background: yellow;
+    color: cyan;
+    font-size: 1.5em;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 1;
+}
+
+.menu li {
+    /*para tirar as bolinhas ao lado dos itens*/
+    list-style: none;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 20px;
+    transition: background-color 2s, color 2s;
+}
+
+.menu ul {
+    /*força alteração de linha para coluna*/
+    display: flex;
+    /*justify-content: space-between; coloca os links a esquerda centro e direita*/
+    justify-content: space-around;
+    /*separa e ajusta os espaços entre os links*/
+}
+
+.menu a:active,
+.menu a:hover {
+    background-color: teal;
+    color: whitesmoke;
+}
+
+a {
+    /*eliminar underline dos links*/
+    color: teal;
+    text-decoration: none;
+}
+
+a:hover {
+    /*Incluir underline nos links quando passar o mouse*/
+    text-decoration: underline;
+}
+
+.titulo {
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+    animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+    from {
+        transform: scale(0.2) translateY(50vh);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.site-title {
+    color: yellowgreen;
+    text-align: center;
+    font-size: 4em;
+    font-style: italic;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.site-subtitle {
+    color: yellowgreen;
+    font-style: italic;
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    line-height: 3.0em;
+    font-size: 3em;
+}
+
+.sobre,
+.contato,
+.portfolio {
+    padding: 2em;
+    min-height: 100vh;
+}
+
+@media (min-width: 1200px) {
+    container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+    }
+}
+
+.sobre h2,
+.contato h2,
+.portfolio h2 {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 1.3em;
+    font-size: 2em;
+    color: yellow;
+    text-align: center;
+}
+
+.sobre p {
+    color: yellow;
+    text-indent: 1.6em;
+    margin-bottom: 1.4em;
+    text-align: justify;
+}
+
+.sobre h3 {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+}
+
+.sobre a {
+    color: cyan;
+    text-decoration: underline;
+}
+
+.sobre a:hover {
+    background-color: yellow;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.sobre .avatar {
+    float: right;
+    margin-left: 2em;
+    border-radius: 25%;
+}
+
+.sobre .avatar img {
+    border-radius: 50%;
+}
+
+.portfolio .grid {
+    display: grid;
+    align-items: center;
+    gap: 1em;
+}
+
+@media (min-width: 560px) {
+    .portfolio .grid {
+        grid-template-columns: repeat(3, 240px);
+    }
+}
+
+@media (min-width: 880px) {
+    .portfolio .grid {
+        grid-template-columns: 240px 240px 240px;
+        align-content: center;
+        justify-content: center;
+        height: calc(100vh - 4em - 48px - 1.5em);
+    }
+}
+
+.portfolio figure {
+    text-align: center;
+}
+
+.img-portfolio {
+    height: 180;
+    width: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+    transition: transform 500ms;
+}
+
+.img-portfolio:hover {
+    transform: scale(1.3);
+}
+
+.flip-card {
+    background-color: blue;
+    height: 180px;
+    perspective: 1000px;
+}
+
+.flip-card:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card {
+    background-color: red;
+    color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 3s;
+}
+
+.card-front,
+.card-back {
+    backface-visibility: hidden;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: white;
+    text-align: justify;
+    height: 180px;
+    width: 100%;
+    transform: rotateY(180deg);
+}
+
+.contato .icons {
+    text-align: center;
+}
+
+.contato a {
+    color: whitesmoke;
+    font-size: 3em;
+    transition: text-shadow 1s;
+}
+
+.contato a:active,
+.contato a:hover {
+    text-decoration: none;
+    text-shadow: 0px 0px 10px red;
+}
